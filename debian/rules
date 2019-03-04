@@ -6,10 +6,12 @@ CONFFLAGS := --enable-png-theme --with-pango \
         DEB_VERSION=$(shell dpkg-parsechangelog | sed -ne 's/^Version: //p')
 
 ifeq (,$(findstring debug,$(DEB_BUILD_OPTIONS)))
-CFLAGS += -DG_DEBUG_DISABLE
+        DEB_CPPFLAGS_MAINT_APPEND += -DG_DEBUG_DISABLE
 else
-CFLAGS += -O0
+        DEB_CFLAGS_MAINT_APPEND += -O0
 endif
+
+export DEB_CPPFLAGS_MAINT_APPEND DEB_CFLAGS_MAINT_APPEND
 
 override_dh_auto_configure:
 	dh_auto_configure -- $(CONFFLAGS)
