@@ -378,7 +378,7 @@ mb_wm_object_signal_disconnect (MBWMObject    *obj,
       item = item->next;
     }
 
-  MBWM_DBG ("### Warning: did not find signal handler %d ###", id);
+  MBWM_DBG ("### Warning: did not find signal handler %lu ###", id);
 }
 
 void
