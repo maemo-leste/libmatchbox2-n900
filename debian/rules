@@ -9,6 +9,7 @@ ifeq (,$(findstring debug,$(DEB_BUILD_OPTIONS)))
         DEB_CPPFLAGS_MAINT_APPEND += -DG_DEBUG_DISABLE
 else
         DEB_CFLAGS_MAINT_APPEND += -O0
+        CONFFLAGS += --enable-debug
 endif
 
 export DEB_CPPFLAGS_MAINT_APPEND DEB_CFLAGS_MAINT_APPEND
